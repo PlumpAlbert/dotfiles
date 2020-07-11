@@ -1,0 +1,25 @@
+! X Resources Generated with Hodler (http://github.com/matttproud/hodler)
+#define c0 #282a36
+#define c1 #f37f97
+#define c2 #5adecd
+#define c3 #f2a272
+#define c4 #8897f4
+#define c5 #c574dd
+#define c6 #79e6f3
+#define c7 #fdfdfd
+#define c8 #414458
+#define c9 #ff4971
+#define c10 #18e3c8
+#define c11 #ff8037
+#define c12 #556fff
+#define c13 #b043d1
+#define c14 #3fdcee
+#define c15 #bebec1
+#define bg #1d1f28
+#define fg #fdfdfd
+#define cursorColor #c574dd
+! See "highlightColorMode" and "hm" options in XTerm manual page.
+#define highlightTextColor #000000
+#define highlightColor #c1ddff
+! No support for cursor text cing; would be #feffff.
+! No support for bold cing; would be #feffff.

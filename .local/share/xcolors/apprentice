@@ -1,0 +1,36 @@
+! special
+#define fg   #bcbcbc
+#define bg   #262626
+#define cursorColor  #6c6c6c
+
+! black
+#define c0       #1c1c1c
+#define c8       #444444
+
+! red
+#define c1       #af5f5f
+#define c9       #ff8700
+
+! green
+#define c2       #5f875f
+#define c10      #87af87
+
+! yellow
+#define c3       #87875f
+#define c11      #ffffaf
+
+! blue
+#define c4       #5f87af
+#define c12      #8fafd7
+
+! magenta
+#define c5       #5f5f87
+#define c13      #8787af
+
+! cyan
+#define c6       #5f8787
+#define c14      #5fafaf
+
+! white
+#define c7       #6c6c6c
+#define c15      #ffffff

@@ -1,0 +1,26 @@
+#define fg   #C0C0C0
+#define bg   #101010
+! black/dark-gray
+#define c0       #101010
+#define c8       #454545
+! red/orange
+#define c1       #EFA6A2
+#define c9       #E0AF85
+! green/aquamarine
+#define c2       #80C990
+#define c10      #5ACCAF
+! amber/yellow
+#define c3       #A69460
+#define c11      #C8C874
+! blue/violet
+#define c4       #A3B8EF
+#define c12      #CCACED
+! magenta/rose
+#define c5       #E6A3DC
+#define c13      #F2A1C2
+! cyan/azure
+#define c6       #50CACD
+#define c14      #74C3E4
+! gray/white
+#define c7       #808080
+#define c15      #C0C0C0

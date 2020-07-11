@@ -1,0 +1,35 @@
+!
+! Generated with :
+! XRDB2Xreources.py
+!
+#define fg  #4d4d4c
+#define bg  #ffffff
+#define cursorColor #4d4d4c
+!
+! Black
+#define c0      #000000
+#define c8      #000000
+!
+! Red
+#define c1      #c82829
+#define c9      #c82829
+!
+! Green
+#define c2      #718c00
+!
+! Yellow
+#define c3      #eab700
+!
+! Blue
+#define c4      #4271ae
+!
+! Magenta
+#define c5      #8959a8
+!
+! Cyan
+#define c6      #3e999f
+!
+! White
+#define c7      #ffffff
+!
+! Bold, Italic, Underline

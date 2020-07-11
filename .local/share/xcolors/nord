@@ -1,0 +1,27 @@
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/c-xresources
+! License:    MIT
+
+#define bg #2E3440
+#define fg #D8DEE9
+
+#define c0 #3B4252
+#define c1 #BF616A
+#define c2 #A3BE8C
+#define c3 #EBCB8B
+#define c4 #81A1C1
+#define c5 #B48EAD
+#define c6 #88C0D0
+#define c7 #E5E9F0
+#define c8 #4C566A
+#define c9 #BF616A
+#define c10 #A3BE8C
+#define c11 #EBCB8B
+#define c12 #81A1C1
+#define c13 #B48EAD
+#define c14 #8FBCBB
+#define c15 #ECEFF4
