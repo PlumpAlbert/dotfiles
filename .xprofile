@@ -1,11 +1,12 @@
 #!/bin/sh
+export QT_QPA_PLATFORMTHEME=qt5ct
+export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
-
-export QT_QPA_PLATFORMTHEME=qt5ct
+export XDG_CONFIG_HOME="$HOME/.config"
 export SUDO_ASK=/usr/bin/lxqt-openssh-askpass
 export GOPATH="$HOME/.local/share/go"
-export PATH="$PATH:/usr/local/bin/scripts:$HOME/.local/bin:$HOME/.local/scripts:$GOPATH/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/scripts:$GOPATH/bin"
 
 alias ls=lsd
 alias l='ls -lF'
@@ -14,15 +15,12 @@ alias ll='ls -lF --total-size'
 alias lla='ls -lAF --total-size'
 alias lt='ls --tree'
 alias llt='l --tree'
-
 alias rm=trash
-
 alias mt='sudo mount'
 alias ut='sudo umount'
+alias rt='python $HOME/Projects/rescuetime/main.py -w 250 --multiplier 1.33'
 
-function gi() { curl -sLw "\n" https://www.gitignore.io/api/$@ ;}
-function fm() { pcmanfm-qt $@ > /dev/null 2>&1 &; sleep 1; disown }
-
+setxkbmap -layout us,ru -option 'grp:caps_tpggle,grp:rctrl_rshift_toggle'
 dwmblocks &
 numlockx on
 picom &
@@ -30,3 +28,4 @@ nm-applet &
 pasystray &
 /usr/bin/lxqt-policykit-agent &
 /usr/bin/redshift-gtk &
+/home/plump/.local/scripts/jack_init.sh
