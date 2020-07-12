@@ -1,0 +1,15 @@
+#!/bin/sh
+
+while read file
+do
+	case $1 in
+		"w") 
+      wallpaper --fill "$file"
+      notify-send -a sxiv -u low "🖼️ Wallpaper successfully changed"
+      ;;
+		"C-c") 
+      xclip -sel clip -t image/png -i "$file"
+      notify-send -a sxiv -u low "📋 Copied to the clipboard"
+      ;;
+  esac
+done
