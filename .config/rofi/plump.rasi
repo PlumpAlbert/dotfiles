@@ -1,8 +1,8 @@
 * {
-  background: #1a1a1a;
-  foreground: #c4c5b5;
-  primary: #58d1eb;
-  accent: #9d65ff;
+  background: #282F37;
+  foreground: #F1FCF9;
+  primary: #9EE9EA;
+  accent: #75DBE1;
   text-font: "JetBrains Mono 10";
   icon-font: "FontAwesome";
 }
