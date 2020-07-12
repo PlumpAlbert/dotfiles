@@ -23,8 +23,4 @@ alias ut='sudo umount'
 function gi() { curl -sLw "\n" https://www.gitignore.io/api/$@ ;}
 function fm() { pcmanfm $@ > /dev/null 2>&1 &; sleep 1; disown }
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 /usr/bin/redshift-gtk &
