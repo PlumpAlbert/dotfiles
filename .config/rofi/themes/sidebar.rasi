@@ -1,0 +1,36 @@
+// vim:ft=css
+@import "../colors.rasi"
+
+#window {
+  width: 64px;
+  anchor: east;
+  location: east;
+  x-offset: -16px;
+  border: 0px;
+  border-radius: 16px;
+  padding: 8px;
+  color: @foreground;
+  background-color: @background;
+  children: [ listview ];
+}
+
+#listview {
+  layout: vertical;
+  dynamic: false;
+}
+
+#element {
+  font: "@icon-font 20";
+  border: 0px;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: @background;
+  color: @foreground;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+}
+#element.selected {
+  color: @background;
+  background-color: @accent;
+}
+

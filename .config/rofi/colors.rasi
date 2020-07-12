@@ -1,0 +1,8 @@
+// vim:ft=css
+@import "plump.rasi"
+
+* {
+  background-color:  transparent;
+  font: @text-font;
+}
+

@@ -1,0 +1,5 @@
+configuration {
+  modi: "window,run,drun,clipboard:greenclip print,combi";
+  combi-modi: "run,drun";
+}
+
