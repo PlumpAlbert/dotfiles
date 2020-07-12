@@ -16,6 +16,6 @@ cmds="\
 🔃 reboot	${reb:-reboot}
 🖥 shutdown	${shut:-shutdown now}"
 
-choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu -i -p 'System' -lines 3)" || exit 1
+choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu -i -p 'System' -lines 6)" || exit 1
 
 `echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-`
