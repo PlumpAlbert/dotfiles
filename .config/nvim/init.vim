@@ -1,4 +1,8 @@
+source $HOME/.config/nvim/plugins.vim
+" Set colorscheme
 colorscheme lena
+let g:airline_powerline_fonts = 1
+
 " Display line numbers
 set number
 
@@ -48,3 +52,11 @@ set smartcase
 
 " If lightline/airline is enabled, don't show mode under it
 set noshowmode
+
+" Backup files
+set nobackup
+set undofile
+if !isdirectory($HOME."/.cache/nvim")
+  call mkdir($HOME."/.cache/nvim", 0770)
+endif
+set undodir=~/.cache/nvim
