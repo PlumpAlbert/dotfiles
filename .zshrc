@@ -25,3 +25,15 @@ fi
 function gi() { curl -sLw "\n" https://www.gitignore.io/api/$@ ;}
 function fm() { pcmanfm-qt $@ > /dev/null 2>&1 &; sleep 1; disown }
 
+alias ls=lsd
+alias l='ls -lF'
+alias la='ls -AF'
+alias ll='ls -lF --total-size'
+alias lla='ls -lAF --total-size'
+alias lt='ls --tree'
+alias llt='l --tree'
+alias rm=trash
+alias mt='sudo mount'
+alias ut='sudo umount'
+alias rt='python $HOME/Projects/rescuetime/main.py -w 250 --multiplier 1.33'
+
