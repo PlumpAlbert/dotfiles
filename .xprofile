@@ -21,6 +21,12 @@ alias mt='sudo mount'
 alias ut='sudo umount'
 
 function gi() { curl -sLw "\n" https://www.gitignore.io/api/$@ ;}
-function fm() { pcmanfm $@ > /dev/null 2>&1 &; sleep 1; disown }
+function fm() { pcmanfm-qt $@ > /dev/null 2>&1 &; sleep 1; disown }
 
+dwmblocks &
+numlockx on
+picom &
+nm-applet &
+pasystray &
+/usr/bin/lxqt-policykit-agent &
 /usr/bin/redshift-gtk &
