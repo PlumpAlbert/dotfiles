@@ -5,21 +5,16 @@ let g:airline_powerline_fonts = 1
 
 " Display line numbers
 set number
-
 " Always show at least one line above/below the cursor.
 set scrolloff=1
 " Always show at least one line left/right of the cursor.
 set sidescrolloff=5
-
 " Highlight matching pairs of brackets. Use the '%' character to jump between them.
 set matchpairs+=<:>
-
 " Use system clipboard
 set clipboard=unnamedplus
-
 " Fix indentation
 map <F7> gg=G<C-o><C-o>
-
 " Toggle vertical line
 set colorcolumn=
 fun! ToggleCC()
@@ -41,22 +36,57 @@ set shiftwidth=2
 set autoindent
 set nocompatible
 filetype plugin indent on
-
 " Mouse support
 set mouse=a
-
 "Case insensitive searching
 set ignorecase
 "Will automatically switch to case sensitive if you use any capitals
 set smartcase
 
+let g:mapleader='\'
+
+" === Search shorcuts === "
+"   <leader>h - Find and replace
+"   <leader>/ - Claer highlighted search terms while preserving history
+map <leader>h :%s///<left><left>
+nmap <silent> <leader>/ :nohlsearch<CR>
 " If lightline/airline is enabled, don't show mode under it
 set noshowmode
 
 " Backup files
-set nobackup
-set undofile
+if has('persistent_undo')
+  set undofile
+  set undolevels=3000
+  set undoreload=10000
+endif
 if !isdirectory($HOME."/.cache/nvim")
   call mkdir($HOME."/.cache/nvim", 0770)
 endif
-set undodir=~/.cache/nvim
+set backupdir=~/.cache/nvim
+set backup
+set noswapfile
+
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+
+" === Nerdtree shorcuts === "
+"  <leader>n - Toggle NERDTree on/off
+"  <leader>f - Opens current file location in NERDTree
+nmap <leader>b :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
+" Quick window switching
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+" Quick tab switching
+nnoremap <C-t>   :tabnew<CR>
+nnoremap <C-j>   :tabprevious<CR>
+nnoremap <C-k>   :tabnext<CR>
+nnoremap <C-A-j> :tabmove -1<CR>
+nnoremap <C-A-k> :tabmove +1<CR>
+inoremap <C-t>   <ESC>:tabnew<CR>
+inoremap <C-j>   <ESC>:tabprevious<CR>i
+inoremap <C-k>   <ESC>:tabnext<CR>i
+inoremap <C-A-j> <ESC>:tabmove -1<CR>i
+inoremap <C-A-k> <ESC>:tabmove +1<CR>i
+
