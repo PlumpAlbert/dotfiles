@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case $1 in
+	"-r")
+		fd . $2 -t f | shuf | sed -n "$3{p;q}"
+		;;
+	*)
+		fd . $1 -t f | sort -h | sed -n "$2{p;q}"
+		;;
+esac

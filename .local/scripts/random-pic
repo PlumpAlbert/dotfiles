@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/local/bin/scripts/pick -r $HOME/Pictures | sxiv -i

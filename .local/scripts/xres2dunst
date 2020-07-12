@@ -1,0 +1,44 @@
+#!/bin/sh
+
+DUNST_TEMPLATE="$HOME/.config/wal/templates/dunstrc"
+DUNST_CONFIG="$HOME/.config/dunst"
+[ -z $DUNST_TEMPLATE ] && exit
+[ -d $DUNST_CONFIG ] || mkdir -p $DUNST_CONFIG
+
+bg="$(xrdb -query | grep -F 'rofi.background:' | cut -f2)"
+fg="$(xrdb -query | grep -F 'rofi.foreground:' | cut -f2)"
+c0="$(xrdb -query | grep -F 'rofi.color0:'| cut -f2)"
+c1="$(xrdb -query | grep -F 'rofi.color1:'| cut -f2)"
+c2="$(xrdb -query | grep -F 'rofi.color2:'| cut -f2)"
+c3="$(xrdb -query | grep -F 'rofi.color3:'| cut -f2)"
+c4="$(xrdb -query | grep -F 'rofi.color4:'| cut -f2)"
+c5="$(xrdb -query | grep -F 'rofi.color5:'| cut -f2)"
+c6="$(xrdb -query | grep -F 'rofi.color6:'| cut -f2)"
+c7="$(xrdb -query | grep -F 'rofi.color7:'| cut -f2)"
+c8="$(xrdb -query | grep -F 'rofi.color8:'| cut -f2)"
+c9="$(xrdb -query | grep -F 'rofi.color9:'| cut -f2)"
+c10="$(xrdb -query | grep -F 'rofi.color10:'| cut -f2)"
+c11="$(xrdb -query | grep -F 'rofi.color11:'| cut -f2)"
+c12="$(xrdb -query | grep -F 'rofi.color12:'| cut -f2)"
+c13="$(xrdb -query | grep -F 'rofi.color13:'| cut -f2)"
+c14="$(xrdb -query | grep -F 'rofi.color14:'| cut -f2)"
+c15="$(xrdb -query | grep -F 'rofi.color15:'| cut -f2)"
+cat "$DUNST_TEMPLATE" | sed \
+          -e "s/{color0}/$c0/g" \
+          -e "s/{color1}/$c1/g" \
+          -e "s/{color2}/$c2/g" \
+          -e "s/{color3}/$c3/g" \
+          -e "s/{color4}/$c4/g" \
+          -e "s/{color5}/$c5/g" \
+          -e "s/{color6}/$c6/g" \
+          -e "s/{color7}/$c7/g" \
+          -e "s/{color8}/$c8/g" \
+          -e "s/{color9}/$c9/g" \
+          -e "s/{color10}/$c10/g" \
+          -e "s/{color11}/$c11/g" \
+          -e "s/{color12}/$c12/g" \
+          -e "s/{color13}/$c13/g" \
+          -e "s/{color14}/$c14/g" \
+          -e "s/{color15}/$c15/g" \
+			    -e "s/{background}/$bg/g" \
+			    -e "s/{foreground}/$fg/g" > "$DUNST_CONFIG/dunstrc"

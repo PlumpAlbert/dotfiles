@@ -1,0 +1,19 @@
+#!/bin/sh
+
+[ -z "$1" ] && url="$(cat -)" || url=$1;
+html="$(curl -sL -H 'Origin: null' "https://cors-anywhere.herokuapp.com/$url" || exit 1)";
+[ -z "$html" ] && echo "Couldn't fetch gallery. Please check your proxy settings." && exit 1;
+images="$(echo $html | grep -Po "class='rel-link' href='\Khttps.+?(?=')")";
+counter=0
+total=$(echo "$images" | wc -l);
+directory="$(echo "$url" | grep -o '[^/]\+\/\?$' | sed 's#[^/]$#&/#')"
+[ -d "$directory" ] || mkdir "$directory";
+echo "$images" | while IFS= read -r img;
+do
+	img_name="$(basename $img)";
+	counter=$((++counter));
+	printf "Downloading image $img_name [$counter of $total]\r";
+	path="$directory$img_name"
+	! [ -f "$path" ] && curl -sLo "$path" "$img";
+done
+

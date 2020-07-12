@@ -1,0 +1,36 @@
+#!/bin/sh
+
+SCREENSHOT=/tmp/screenshot-"$(date +%FT%T)".png
+
+if ! [ -z $1 ]; then
+  case $1 in
+    -w) maim -uBm 6 -i $(xdotool getactivewindow) -f png $SCREENSHOT ;;
+    -s) maim -uBm 8 -s -f png $SCREENSHOT ;;
+  esac
+  notify-send -a dwm -i $SCREENSHOT "Screenshot captured!";
+  xclip -sel clip -t image/png < $SCREENSHOT;
+  exit
+fi
+
+rofi_command='rofi -theme themes/sidebar.rasi -lines 2 -dmenu'
+
+screen=''
+area=''
+
+options="$screen\n$area"
+
+selection="$(echo "$options" | $rofi_command)"
+case $selection in
+  $screen)
+		maim -uBm 6 -f png $SCREENSHOT
+    notify-send -a dwm -i $SCREENSHOT "Screenshot captured!";
+    xclip -sel clip -t image/png < $SCREENSHOT;
+    ;;
+  $area)
+		maim -uBm 10 -s -f png $SCREENSHOT
+    notify-send -a dwm -i $SCREENSHOT "Screenshot captured!";
+    xclip -sel clip -t image/png < $SCREENSHOT;
+    ;;
+  *) exit ;;
+esac
+

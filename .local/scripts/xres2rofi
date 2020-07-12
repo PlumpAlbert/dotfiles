@@ -1,0 +1,17 @@
+#!/bin/sh
+
+rofi_global="$HOME/.config/rofi/plump.rasi"
+
+[ -d "$HOME/.config/rofi" ] || mkdir -p "$HOME/.config/rofi";
+
+echo "* {" > "$rofi_global"
+
+xrdb -query | grep -oP 'rofi\.\K.*' | while read line
+do
+	key=$(echo $line | cut -d' ' -f 1)
+	[ "$key" = "theme:" ] && continue;
+	value=$(echo $line | cut -d' ' -f2-)
+	echo "  $key $value;" >> "$rofi_global"
+done
+
+echo "}" >> "$rofi_global"

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+images="$(fd . -t f ~/Pictures/ -X ls -1t {})"
+echo "$images" | sxiv -i

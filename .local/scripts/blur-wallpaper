@@ -1,0 +1,39 @@
+#!/bin/sh
+TMP="/tmp/blur-wallpaper"
+RESULT_WALL="$HOME/.cache/blur-wallpaper/$(basename "$1").jpg"
+
+mkdir -p "$TMP"
+mkdir -p "$HOME/.cache/blur-wallpaper";
+[ -f "$RESULT_WALL" ] && echo $RESULT_WALL && exit;
+
+WIDTH=$(identify -format '%w' "$1")
+HEIGHT=$(identify -format '%h' "$1")
+
+ # Scaling initial image
+magick "$1" \
+  -gravity Center \
+  -resize x1080 \
+  "$TMP/small.jpg";
+SW=$(identify -format '%w' "$TMP/small.jpg")
+OFFSET_X=$(((1920 - $SW) / 2))
+magick "$1" -resize 1920 "$TMP/scale.jpg";
+SH=$(identify -format "%h" "$TMP/scale.jpg");
+VCLIP=$(((SH - 1080) / 2));
+[ "$VCLIP" -lt 0 ] && export VCLIP=0
+# Blurring left side
+magick "$TMP/scale.jpg" \
+  -crop "$OFFSET_X""x1080+0+$VCLIP" \
+  -gaussian-blur 0x10 \
+  "$TMP/blur-left.jpg";
+# Blurring right side
+magick "$TMP/scale.jpg" \
+  -crop "$OFFSET_X""x1080+$((1920 - OFFSET_X))+$VCLIP" \
+  -gaussian-blur 0x10 \
+  "$TMP/blur-right.jpg";
+convert +append \
+  "$TMP/blur-left.jpg" \
+  "$TMP/small.jpg" \
+  "$TMP/blur-right.jpg" \
+  "$RESULT_WALL"
+
+echo $RESULT_WALL

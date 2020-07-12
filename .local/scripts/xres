@@ -1,0 +1,24 @@
+#!/bin/sh
+
+sed -i -E \
+  -e 's/\*.?foreground:/#define fg/' \
+  -e 's/\*.?background:/#define bg/' \
+  -e 's/\*.?cursorColor:/#define cursorColor/' \
+  -e 's/\*.?color0:/#define c0/' \
+  -e 's/\*.?color1:/#define c1/' \
+  -e 's/\*.?color2:/#define c2/' \
+  -e 's/\*.?color3:/#define c3/' \
+  -e 's/\*.?color4:/#define c4/' \
+  -e 's/\*.?color5:/#define c5/' \
+  -e 's/\*.?color6:/#define c6/' \
+  -e 's/\*.?color7:/#define c7/' \
+  -e 's/\*.?color8:/#define c8/' \
+  -e 's/\*.?color9:/#define c9/' \
+  -e 's/\*.?color10:/#define c10/' \
+  -e 's/\*.?color11:/#define c11/' \
+  -e 's/\*.?color12:/#define c12/' \
+  -e 's/\*.?color13:/#define c13/' \
+  -e 's/\*.?color14:/#define c14/' \
+  -e 's/\*.?color15:/#define c15/' \
+  -e '/color\w{2}/d' \
+  "$1"

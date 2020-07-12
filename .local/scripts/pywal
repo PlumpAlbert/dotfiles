@@ -1,0 +1,4 @@
+#!/bin/sh
+
+wal="$HOME/.local/bin/wal";
+wal --backend schemer2 --saturate 0.7 "$@" && xrdb -override ~/.Xresources > /dev/null 2>&1;

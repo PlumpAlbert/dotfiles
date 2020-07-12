@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xclip -sel clip \
+  -t image/png \
+  -i "$(cat "$HOME/.fehbg" | cut -d"'" -f2 | tail -1)"

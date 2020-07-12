@@ -1,0 +1,11 @@
+#!/bin/sh
+
+killall dunst;
+image=$(find -L ~/Pictures -type f | shuf -n 1);
+wal -qni "$image" --backend schemer2 --saturate 0.7;
+xrdb -override ~/.Xresources > /dev/null 2>&1;
+xres2rofi 2 > /dev/null;
+xres2dunst 2 > /dev/null;
+notify-send -a dwm -i "$image" $'Color scheme updated!\n'"$(basename "$image")";
+echo "$image" | xclip -sel clip;
+wal --p;

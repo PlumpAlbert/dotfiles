@@ -1,0 +1,49 @@
+#!/bin/sh
+WALL_DIRECTORY="$HOME/Pictures"
+WALL_OPTION='--bg-fill'
+WALL_DELAY=5m
+BLUR=0
+
+set_wall() {
+ if [ $(identify -format "%w/%h >= 1.7\n" "$1" | bc -l) -eq 0 ];
+ then
+   [ $BLUR -eq 1 ] \
+     && feh --bg-fill --no-fehbg "$(blur-wallpaper "$1")" \
+     || feh $WALL_OPTION --no-fehbg "$1";
+ else
+   feh $WALL_OPTION --no-fehbg "$1"
+ fi
+}
+
+while [ $# -ne 0 ]
+do
+  case $1 in
+    -d | --delay)
+      shift
+      export WALL_DELAY=$1
+      ;;
+    --blur) export BLUR=1 ;;
+    --center) export WALL_OPTION='--bg-center' ;;
+    --fill) export WALL_OPTION='--bg-fill' ;;
+    --max) export WALL_OPTION='--bg-max' ;;
+    --tile) export WALL_OPTION='--bg-tile' ;;
+    --zoom) export WALL_OPTION='--bg-scale' ;;
+    *) break ;;
+  esac
+  shift
+done;
+
+if [ -f "$1" ]; then
+  set_wall "$1"
+elif [ -d "$1" ]; then
+  export WALL_DIRECTORY="$1"
+  while [ "$(ps x | grep dwm | wc -l)" -gt 1 ]
+  do
+    for i in $(fd . -t f "$WALL_DIRECTORY" | shuf); do
+      set_wall "$i"
+      sleep $WALL_DELAY;
+    done;
+  done;
+else
+  exit 1
+fi

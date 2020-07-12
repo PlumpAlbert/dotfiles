@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pactl load-module module-jack-source \
+  source_name=$1 \
+  source_properties=device.description=$1 \
+  client_name=$1

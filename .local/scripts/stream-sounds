@@ -1,0 +1,11 @@
+#!/bin/sh
+jack_connect 'SystemSounds:front-left' 'Microphone:front-left'
+if [ $? -eq 0 ]
+then
+  jack_connect 'SystemSounds:front-right' 'Microphone:front-right'
+  notify-send -a 'Jack' '🔔 Connected'
+else
+  jack_disconnect 'SystemSounds:front-left' 'Microphone:front-left'
+  jack_disconnect 'SystemSounds:front-right' 'Microphone:front-right'
+  notify-send -a 'Jack' '🔕 Disconnected'
+fi
