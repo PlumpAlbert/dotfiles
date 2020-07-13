@@ -14,6 +14,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'lervag/vimtex'
 Plug 'valloric/youcompleteme', {'do': './install.py --clangd-completer --ts-completer' }
 Plug 'prettier/vim-prettier', {'do': 'npm i'}
+Plug 'jansenm/vim-cmake'
 
 call plug#end()
 
