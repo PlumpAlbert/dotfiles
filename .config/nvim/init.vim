@@ -2,6 +2,7 @@ source $HOME/.config/nvim/plugins.vim
 " Set colorscheme
 colorscheme lena
 let g:airline_powerline_fonts = 1
+set omnifunc=syntaxcomplete#Complete
 
 " Display line numbers
 set number
