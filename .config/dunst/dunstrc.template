@@ -47,8 +47,7 @@
 
 
 [spotify_rule]
-  app_name = Spotify
-  script = "/home/plump/.config/dunst/spotify.sh"
+  appname = Spotify
   background = "#191414"
   foreground = "#FFFFFF"
   frame_color = "#1DB954"
