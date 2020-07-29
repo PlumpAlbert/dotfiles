@@ -22,12 +22,12 @@ options="$screen\n$area"
 selection="$(echo "$options" | $rofi_command)"
 case $selection in
   $screen)
-		maim -uBm 6 -f png $SCREENSHOT
+    maim -uBm 6 -f png -d 0.25 $SCREENSHOT
     notify-send -a dwm -i $SCREENSHOT "Screenshot captured!";
     xclip -sel clip -t image/png < $SCREENSHOT;
     ;;
   $area)
-		maim -uBm 10 -s -f png $SCREENSHOT
+    maim -uBm 10 -s -f png $SCREENSHOT
     notify-send -a dwm -i $SCREENSHOT "Screenshot captured!";
     xclip -sel clip -t image/png < $SCREENSHOT;
     ;;
