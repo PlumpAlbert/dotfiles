@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # If JACK is not installed or running - exit
-jack_control status | grep stopped
-[ $? -eq 1 ] && exit
+jack_control stop
 
 # Audio settings
 jack_control start

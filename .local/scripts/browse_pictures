@@ -5,11 +5,8 @@ nf="$(xrdb -query | awk '/*color15/ {print $2}' )"
 sb="$(xrdb -query | awk '/*color8/ {print $2}' )"
 sf="$(xrdb -query | awk '/*color11/ {print $2}' )"
 
-folder="$(ls -1 "$HOME/Pictures/" | dmenu -c -fn "Roboto Mono:pixelsize=12" \
-						  -l 10 \
-						  -nb "$nb" \
-						  -nf "$nf" \
-						  -sb "$sb" \
-						  -sf "$sf")";
+folder="$(ls -1 "$HOME/Pictures/" \
+  | rofi -dmenu -lines 10)";
+
 cd "$HOME/Pictures/$folder"; 
 ls -1t | sxiv -i;

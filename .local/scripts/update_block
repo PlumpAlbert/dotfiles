@@ -1,0 +1,12 @@
+#!/bin/sh
+
+update() {
+  echo "kill -$((34 + $1)) $(pidof dwmblocks)" | sh
+}
+
+[ -n "$1" ] && [ "$1" -eq "$1" ] 2>/dev/null
+[ $? -eq 0 ] && update $1
+
+code=$(grep -oP "^$1\t\K\d+" /usr/local/share/dwmblocks/codes)
+[ $? -ne 0 ] && exit
+update $code
