@@ -16,7 +16,7 @@ rofi.background: bg
 rofi.foreground: fg
 rofi.primary: c6
 rofi.accent: c4
-rofi.text-font: "JetBrains Mono 10"
+rofi.text-font: "JetBrainsMono Nerd Font 10"
 rofi.icon-font: "FontAwesome"
 
 ! X colors.

@@ -1,8 +1,6 @@
 source $HOME/.config/nvim/plugins.vim
 " Set colorscheme
 colorscheme lena
-let g:airline_powerline_fonts = 1
-set omnifunc=syntaxcomplete#Complete
 
 " Display line numbers
 set number
@@ -17,7 +15,7 @@ set clipboard=unnamedplus
 " Fix indentation
 map <F7> gg=G<C-o><C-o>
 " Toggle vertical line
-set colorcolumn=
+set colorcolumn=80
 fun! ToggleCC()
   if &cc == ''
     " set cc=1,4,21
@@ -31,7 +29,7 @@ nnoremap <silent> <F9> :call ToggleCC()<CR>
 " Indentation
 set smarttab
 set expandtab
-set tabstop=8
+set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set autoindent
@@ -77,8 +75,10 @@ endif
 nmap <leader>b :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 " Quick window switching
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+nnoremap <C-S-h> <C-w>h
+nnoremap <C-S-j> <C-w>j
+nnoremap <C-S-k> <C-w>k
+nnoremap <C-S-l> <C-w>l
 " Quick tab switching
 nnoremap <C-t>   :tabnew<CR>
 nnoremap <C-j>   :tabprevious<CR>
