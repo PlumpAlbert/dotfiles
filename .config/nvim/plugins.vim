@@ -15,6 +15,7 @@ call plug#begin('~/.cache/vim-plug')
 
 " Languages
 Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'lervag/vimtex'
@@ -23,10 +24,24 @@ Plug 'mattn/emmet-vim'
 
 " Linter
 Plug 'dense-analysis/ale'
+Plug 'sbdchd/neoformat'
+source $HOME/.config/nvim/neoformat/javascript.vim
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'theoldmoon0602/coc-plug'
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ 'coc-emmet',
+      \ 'coc-css',
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-clangd',
+      \ 'coc-cmake',
+      \ 'coc-highlight',
+      \ 'coc-jedi',
+      \ 'coc-vimtex'
+      \]
+
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -38,21 +53,14 @@ Plug 'chun-yang/auto-pairs'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'scrooloose/nerdtree'
+Plug 'pgavlin/pulumi.vim'
+Plug 'flrnprz/plastic.vim'
 
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-gitbranch'
 
 call plug#end()
-
-call coc_plug#begin()
-  CocPlug 'coc-json'
-  CocPlug 'coc-tsserver'
-  CocPlug 'coc-html'
-  CocPlug 'coc-css'
-  CocPlug 'coc-sh'
-  CocPlug 'coc-vimtex'
-call coc_plug#end()
 
 " JS
 " Highlight jsx syntax even in non .jsx files
@@ -69,3 +77,15 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>do <Plug>(coc-codeaction)
 nmap <leader>rn <Plug>(coc-rename)
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"

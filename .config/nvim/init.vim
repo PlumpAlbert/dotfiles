@@ -1,6 +1,13 @@
 source $HOME/.config/nvim/plugins.vim
 " Set colorscheme
-colorscheme lena
+set termguicolors
+set background=dark
+syntax on
+colorscheme plastic
+let g:lightline = {'colorscheme': 'plastic'}
+
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
 " Display line numbers
 set number
