@@ -1,15 +1,5 @@
 source $HOME/.config/nvim/autoload/plug.vim
 
-" === ale ===
-let g:ale_fixers = {
-      \ 'javascript': ['prettier', 'eslint'],
-      \ 'css': ['prettier'],
-      \ 'html': ['prettier'],
-      \ 'json': ['prettier'],
-      \ 'typescript': ['prettier'],
-      \ '*': ['trim_whitespace'],
-      \}
-let g:ale_fix_on_save = 1
 
 call plug#begin('~/.cache/vim-plug')
 
@@ -19,13 +9,31 @@ Plug 'ianks/vim-tsx'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'lervag/vimtex'
+let g:tex_flavor = 'latex'
 Plug 'jansenm/vim-cmake'
-Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-haml'
 
 " Linter
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'javascriptreact': ['prettier'],
+      \ 'css': ['prettier'],
+      \ 'scss': ['prettier'],
+      \ 'html': ['prettier'],
+      \ 'json': ['prettier'],
+      \ 'typescript': ['prettier'],
+      \ '*': ['trim_whitespace'],
+      \}
 Plug 'dense-analysis/ale'
-Plug 'sbdchd/neoformat'
-source $HOME/.config/nvim/neoformat/javascript.vim
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
+let g:ale_javascript_prettier_options = '--config ~/.prettierrc'
+let g:ale_javascriptreact_prettier_options = '--config ~/.prettierrc'
+let g:ale_css_prettier_options = '--config ~/.prettierrc'
+let g:ale_html_prettier_options = '--config ~/.prettierrc'
+let g:ale_json_prettier_options = '--config ~/.prettierrc'
+let g:ale_typescript_prettier_options = '--config ~/.prettierrc'
+nmap <silent> <S-A-f> :ALEFix
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -41,7 +49,6 @@ let g:coc_global_extensions = [
       \ 'coc-jedi',
       \ 'coc-vimtex'
       \]
-
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
