@@ -21,8 +21,8 @@
   stack_duplicates = yes
   show_indicators = yes
   icon_position = left
-  max_icon_size = 64
-  icon_path = "/usr/share/icons/Windows 2K-ME/actions/64/:/usr/share/icons/Windows 2K-ME/apps/48/:/usr/share/icons/Windows 2K-ME/devices/64/:/usr/share/icons/Windows 2K-ME/status/64/"
+  max_icon_size = 48
+  icon_path = "/usr/share/icons/Chicago95/actions/48/:/usr/share/icons/Chicago95/apps/48/:/usr/share/icons/Chicago95/devices/48/:/usr/share/icons/Chicago95/status/64/"
   dmenu = "/usr/local/bin/dmenu"
   browser = "/usr/bin/firefox"
   corner_radius = 4
@@ -51,5 +51,5 @@
   background = "#191414"
   foreground = "#FFFFFF"
   frame_color = "#1DB954"
-  new_icon = "/usr/share/icons/Windows 2K-ME/apps/48/spotify.png"
+  new_icon = "/opt/spotify/icons/spotify-linux-48.png"
   format = "<span weight='bold' foreground='#1DB954'>Spotify</span>\n%s\n%b"
