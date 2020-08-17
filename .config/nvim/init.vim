@@ -1,13 +1,15 @@
 source $HOME/.config/nvim/plugins.vim
 " Set colorscheme
-set termguicolors
-set background=dark
+"set termguicolors
+"set background=dark
 syntax on
-colorscheme plastic
-let g:lightline = {'colorscheme': 'plastic'}
+"colorscheme plastic
+"let g:lightline = {'colorscheme': 'plastic'}
 
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+au BufRead,BufNewFile *.{css,scss,less} setlocal foldmethod=marker foldmarker={,}
+au BufRead,BufNewFile *.{js,jsx,ts,tsx} setlocal foldmethod=syntax
 
 " Display line numbers
 set number
