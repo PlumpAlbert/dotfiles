@@ -1,10 +1,10 @@
-#include "/home/plump/.local/share/xcolors/amarena"
+#include "/home/plump/.local/share/xcolors/Molokai"
 !#include "/home/plump/.cache/wal/Xresources"
 
 ! dwm
 dwm.selbgcolor: bg
 dwm.selbordercolor: bg
-dwm.selfgcolor: c11
+dwm.selfgcolor: c14
 
 dwm.normbgcolor: bg
 dwm.normbordercolor: bg
