@@ -31,19 +31,20 @@
   mouse_middle = close_current
 
 [urgency_low]
-  background = "{bg}"
-  foreground = "{c8}"
+  background = "{fg}"
+  foreground = "{c0}"
   timeout = 3
 
 [urgency_normal]
-  background = "{bg}"
-  foreground = "{fg}"
+  background = "{fg}"
+  foreground = "{c0}"
   timeout = 3
 
 [urgency_critical]
-  background = "{c1}"
-  foreground = "{bg}"
-  timeout = 0 
+  new_icon = "/usr/share/icons/Chicago95/status/48/dialog-error.png"
+  background = "{fg}"
+  foreground = "{c0}"
+  timeout = 0
 
 
 [spotify_rule]
