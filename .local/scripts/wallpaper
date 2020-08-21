@@ -13,8 +13,8 @@ set_wall() {
      feh --bg-fill --no-fehbg "$HOME/.wallpaper"
      exit
    fi
- feh $WALL_OPTION --no-fehbg "$HOME/.wallpaper"
  fi
+ feh $WALL_OPTION --no-fehbg "$HOME/.wallpaper"
 }
 
 while [ $# -ne 0 ]
