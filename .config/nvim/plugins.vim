@@ -1,6 +1,16 @@
 source $HOME/.config/nvim/autoload/plug.vim
 
-
+let g:ale_disable_lsp = 1
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'javascriptreact': ['prettier'],
+      \ 'css': ['prettier'],
+      \ 'scss': ['prettier'],
+      \ 'html': ['prettier'],
+      \ 'json': ['prettier'],
+      \ 'typescript': ['prettier'],
+      \ '*': ['trim_whitespace'],
+      \}
 call plug#begin('~/.cache/vim-plug')
 
 " Languages
@@ -14,16 +24,6 @@ Plug 'jansenm/vim-cmake'
 Plug 'tpope/vim-haml'
 
 " Linter
-let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
-      \ 'javascriptreact': ['prettier'],
-      \ 'css': ['prettier'],
-      \ 'scss': ['prettier'],
-      \ 'html': ['prettier'],
-      \ 'json': ['prettier'],
-      \ 'typescript': ['prettier'],
-      \ '*': ['trim_whitespace'],
-      \}
 Plug 'dense-analysis/ale'
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
@@ -33,7 +33,7 @@ let g:ale_css_prettier_options = '--config ~/.prettierrc'
 let g:ale_html_prettier_options = '--config ~/.prettierrc'
 let g:ale_json_prettier_options = '--config ~/.prettierrc'
 let g:ale_typescript_prettier_options = '--config ~/.prettierrc'
-nmap <silent> <S-A-f> :ALEFix
+nmap <silent> <C-S-i> :ALEFix
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
