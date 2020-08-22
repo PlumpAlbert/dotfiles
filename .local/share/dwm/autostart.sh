@@ -1,9 +1,11 @@
 #!/bin/sh
-dwmblocks &
-picom &
-nm-applet &
-pasystray &
-/usr/bin/lxqt-policykit-agent &
+[ $(pidof dwmblocks)] || dwmblocks &
+[ $(pidof picom) ] || picom &
+[ $(pidof nm-applet) ] || nm-applet &
+[ $(pidof pasystray) ] || pasystray &
+[ $(pidof lxqt-policykit-agent) ] || lxqt-policykit-agent &
+[ $(pidof redshift) ] || redshift-gtk &
+numlockx on
 ### Setting wallpaper
 
 # Set wallpaper from previous session
@@ -16,7 +18,4 @@ eval "$HOME/.fehbg"
 #wallpaper "$(pick -r "$HOME/Pictures")"
 
 
-sleep 1s
-start-pulseaudio-x11
-sleep 1s
 jack_init.sh

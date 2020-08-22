@@ -1,6 +1,4 @@
 #!/bin/sh
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
 export BROWSER=google-chrome-stable
 export XDG_CONFIG_HOME="$HOME/.config"
 export SUDO_ASKPASS=/usr/bin/lxqt-openssh-askpass
@@ -8,5 +6,3 @@ export GOPATH="$HOME/.local/share/go"
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/scripts:$GOPATH/bin"
 
 setxkbmap -layout us,ru -option 'grp:caps_toggle,grp:rctrl_rshift_toggle'
-numlockx on
-/usr/bin/redshift-gtk &
