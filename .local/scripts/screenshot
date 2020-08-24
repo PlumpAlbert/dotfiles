@@ -17,9 +17,9 @@ rofi_command='rofi -theme themes/sidebar.rasi -lines 2 -dmenu'
 screen=''
 area=''
 
-options="$screen\n$area"
+options="$screen|$area"
 
-selection="$(echo "$options" | $rofi_command)"
+selection="$(echo -n "$options" | $rofi_command -sep '|')"
 case $selection in
   $screen)
     maim -uBm 6 -f png -d 0.25 $SCREENSHOT
