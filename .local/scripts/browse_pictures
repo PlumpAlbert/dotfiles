@@ -8,5 +8,4 @@ sf="$(xrdb -query | awk '/*color11/ {print $2}' )"
 folder="$(ls -1 "$HOME/Pictures/" \
   | rofi -dmenu -lines 10)";
 
-cd "$HOME/Pictures/$folder"; 
-ls -1t | sxiv -i;
+fd . -t f "$HOME/Pictures/$folder" -X ls -t | sxiv -i;
