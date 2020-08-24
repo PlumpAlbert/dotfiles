@@ -6,14 +6,8 @@ BLUR=0
 
 set_wall() {
  ln -sf "$1" "$HOME/.wallpaper"
- if [ $(identify -format "%w/%h >= 1.7\n" "$1" | bc -l) -eq 0 ];
- then
-   if [ $BLUR -eq 1 ]; then
-     ln -sf "$(blur-wallpaper "$HOME/.wallpaper")" "$HOME/.wallpaper"
-     feh --bg-fill --no-fehbg "$HOME/.wallpaper"
-     exit
-   fi
- fi
+ [ $(identify -format "%w/%h >= 1.7\n" "$1" | bc -l) -eq 0 ] && [ $BLUR -eq 1 ] \
+   && ln -sf "$(blur-wallpaper "$1")" "$HOME/.wallpaper"
  feh $WALL_OPTION --no-fehbg "$HOME/.wallpaper"
 }
 
