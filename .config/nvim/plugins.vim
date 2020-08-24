@@ -57,8 +57,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'chun-yang/auto-pairs'
 
 " Vim UI
-Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_theme = 'deus'
 Plug 'scrooloose/nerdtree'
 Plug 'pgavlin/pulumi.vim'
 Plug 'flrnprz/plastic.vim'
