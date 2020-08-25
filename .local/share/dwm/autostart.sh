@@ -9,10 +9,10 @@ numlockx on
 ### Setting wallpaper
 
 # Set wallpaper from previous session
-eval "$HOME/.fehbg"
+#eval "$HOME/.fehbg"
 
 # Launch script to set random wallpaper every 1 min
-#wallpaper --max -d 1m "$HOME/Pictures" &
+wallpaper --max --blur -d 1m "$HOME/Pictures" &
 
 # Pick random picture and set wallpaper
 #wallpaper "$(pick -r "$HOME/Pictures")"

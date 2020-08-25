@@ -35,5 +35,5 @@ alias llt='l --tree'
 alias rm=trash
 alias mt='sudo mount'
 alias ut='sudo umount'
-alias rt='python $HOME/Projects/rescuetime/main.py -w 250 --multiplier 1.33'
+alias rt='python $HOME/projects/rescuetime/main.py -w 250 --multiplier 1.33'
 

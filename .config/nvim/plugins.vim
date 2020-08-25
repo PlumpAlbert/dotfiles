@@ -33,7 +33,8 @@ let g:ale_css_prettier_options = '--config ~/.prettierrc'
 let g:ale_html_prettier_options = '--config ~/.prettierrc'
 let g:ale_json_prettier_options = '--config ~/.prettierrc'
 let g:ale_typescript_prettier_options = '--config ~/.prettierrc'
-nmap <silent> <C-S-i> :ALEFix
+nmap <silent> <C-S-i> :ALEFix<CR>
+inoremap <silent> <C-S-i> :ALEFix<CR>
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -59,6 +60,7 @@ Plug 'chun-yang/auto-pairs'
 " Vim UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme = 'deus'
 Plug 'scrooloose/nerdtree'
