@@ -1,4 +1,4 @@
-#include "/home/plump/.local/share/xcolors/Firewatch"
+#include "/home/plump/.local/share/xcolors/GruvboxDark"
 !#include "/home/plump/.cache/wal/Xresources"
 
 ! dwm
@@ -9,6 +9,12 @@ dwm.selfgcolor: c14
 dwm.normbgcolor: bg
 dwm.normbordercolor: bg
 dwm.normfgcolor: c7
+
+! dmenu
+dmenu.background: bg
+dmenu.foreground: fg
+dmenu.selbackground: bg
+dmenu.selforeground: c14
 
 ! rofi
 rofi.theme: /home/plump/.config/rofi/material.rasi
