@@ -5,9 +5,10 @@ WALL_DELAY=5m
 BLUR=0
 
 set_wall() {
- ln -sf "$1" "$HOME/.wallpaper"
- [ $(identify -format "%w/%h >= 1.7\n" "$1" | bc -l) -eq 0 ] && [ $BLUR -eq 1 ] \
-   && ln -sf "$(blur-wallpaper "$1")" "$HOME/.wallpaper"
+  image="$(realpath "$1")"
+  ln -sf "$image" "$HOME/.wallpaper"
+ [ $(identify -format "%w/%h >= 1.7\n" "$image" | bc -l) -eq 0 ] && [ $BLUR -eq 1 ] \
+   && ln -sf "$(blur-wallpaper "$image")" "$HOME/.wallpaper"
  feh $WALL_OPTION --no-fehbg "$HOME/.wallpaper"
 }
 
