@@ -13,6 +13,8 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 au BufRead,BufNewFile *.{css,scss,less} setlocal foldmethod=marker foldmarker={,}
 au BufRead,BufNewFile *.{js,jsx,ts,tsx} setlocal foldmethod=syntax
 
+" Automatic formatting
+set formatoptions=tacqw
 " Display line numbers
 set number
 " Always show at least one line above/below the cursor.
