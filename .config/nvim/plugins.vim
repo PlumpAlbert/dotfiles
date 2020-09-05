@@ -58,6 +58,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'chun-yang/auto-pairs'
 
 " Vim UI
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1

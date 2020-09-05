@@ -3,7 +3,8 @@ source $HOME/.config/nvim/plugins.vim
 "set termguicolors
 "set background=dark
 syntax on
-colorscheme lena
+"colorscheme lena
+colorscheme gruvbox
 "colorscheme plastic
 "let g:lightline = {'colorscheme': 'plastic'}
 
