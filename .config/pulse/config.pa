@@ -1,0 +1,10 @@
+# Create sink for system sounds
+load-module module-jack-sink sink_name='SystemSounds' sink_properties=device.description='SystemSounds' client_name='SystemSounds'
+set-default-sink 'SystemSounds'
+
+# Create sink for discord
+load-module module-jack-sink sink_name='Discord' sink_properties=device.description='Discord' client_name='Discord'
+
+# Create source
+load-module module-jack-source source_name='Microphone' source_properties=device.description='Microphone' client_name='Microphone'
+set-default-source 'Microphone'
