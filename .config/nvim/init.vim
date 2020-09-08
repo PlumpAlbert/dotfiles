@@ -6,7 +6,7 @@ syntax on
 "colorscheme lena
 colorscheme gruvbox
 "colorscheme plastic
-"let g:lightline = {'colorscheme': 'plastic'}
+hi Normal guibg=NONE ctermbg=NONE
 
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
@@ -14,7 +14,7 @@ au BufRead,BufNewFile *.{css,scss,less} setlocal foldmethod=marker foldmarker={,
 au BufRead,BufNewFile *.{js,jsx,ts,tsx} setlocal foldmethod=syntax
 
 " Automatic formatting
-set formatoptions=tacqw
+au BufNewFile,BufRead *.{md,tex,txt} set formatoptions=tacqw
 " Display line numbers
 set number
 " Always show at least one line above/below the cursor.

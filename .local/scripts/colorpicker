@@ -1,3 +1,6 @@
 #!/bin/sh
 
-/usr/bin/xcolor | /usr/bin/xclip -sel clip
+! [ $(which xcolor) ] && notify-send -a 'dwm' -u critical '`xcolor` is not installed!'
+! [ $(which xclip) ] && notify-send -a 'dwm' -u critical '`xclip` is not installed!'
+
+xcolor | tr -d'\n' | xclip -sel clip
