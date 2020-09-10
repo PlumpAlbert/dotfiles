@@ -1,7 +1,7 @@
 #!/bin/sh
 #[ $(pidof dwmblocks) ] || dwmblocks &
 [ $(pidof picom) ] || picom &
-#[ $(pidof nm-applet) ] || nm-applet &
+[ $(pidof nm-applet) ] || nm-applet &
 #[ $(pidof pasystray) ] || pasystray &
 [ $(pidof lxqt-policykit-agent) ] || lxqt-policykit-agent &
 [ $(pidof redshift) ] || redshift-gtk &
@@ -19,3 +19,4 @@ eval "$HOME/.fehbg"
 
 #qwall 1m
 jack_init.sh
+echo "$HOME/.Xresources" | entr -p xresupdate
