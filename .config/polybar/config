@@ -1,4 +1,4 @@
-;==========================================================
+;====================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -19,16 +19,16 @@
 [colors]
 background = ${xrdb:background:#1a1a1a}
 foreground = ${xrdb:foreground:#f7f7f7}
-foreground-alt = ${xrdb:color8:#ffffff}
+foreground-alt = ${xrdb:color8:#666}
 primary = ${xrdb:color2:#868715}
 secondary = ${xrdb:color3:#cc881a}
 alert = ${xrdb:color1:#be0f17}
 
 [bar/example]
 width = 100%
-height = 28
+height = 20
 bottom = false
-radius-bottom = 4.0
+radius = 6.0
 fixed-center = true
 override-redirect = false
 
@@ -42,19 +42,19 @@ border-size = 4
 border-color = #00000000
 
 padding-left = 0
-padding-right = 0
+padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = JetBrainsMono Nerd Font:size=10;1
-font-1 = Noto Color Emoji:scale=12:antialias=true;1
-font-2 = FontAwesome:size=10:antialias=false;1
-font-3 = monospace:size=10;1
+font-0 = JetBrainsMono Nerd Font:pixelsize=8;1
+font-1 = Noto Color Emoji:scale=16:antialias=true;0
+font-2 = FontAwesome:pixelsize=8:antialias=false;0
+font-3 = monospace:pixelsize=8;1
 
-modules-left = dwm
-modules-center = xwindow
-modules-right = cpu memory network eth xkeyboard date powermenu
+modules-left = dwm xwindow
+modules-center = cpu memory
+modules-right = xbacklight pulseaudio battery xkeyboard date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -75,6 +75,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
+label-foreground = ${colors.primary}
 label = %title:0:30:...%
 
 [module/xkeyboard]
@@ -89,7 +90,6 @@ label-layout = %layout%
 label-layout-underline = ${xrdb:color13:colors.secondary}
 
 label-indicator-padding = 2
-label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
@@ -99,8 +99,6 @@ format =  <label-layout> <label-tags> <label-floating>
 
 enable-tags-click = true
 enable-tags-scroll = true
-enable-layout-scroll = true
-enable-layout-wrap = true
 
 label-layout-padding = 2
 
@@ -123,17 +121,14 @@ label-empty = ""
 type = internal/xbacklight
 
 format = <label> <bar>
-label = BL
+label = 🔆
 
 bar-width = 10
 bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
+bar-indicator-foreground = ${colors.foreground}
 bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-foreground = ${xrdb:color12:#9f78e1}
 bar-empty = ─
-bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
 [module/backlight-acpi]
@@ -145,37 +140,24 @@ card = intel_backlight
 type = internal/cpu
 interval = 3
 format-prefix = "⚙️ "
-format-underline = ${xrdb:color9:#ffffff}
+;format-underline = ${xrdb:color9:#ffffff}
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 3
 format-prefix = "🐏 "
-format-underline = ${xrdb:color10:#ffffff}
+;format-underline = ${xrdb:color10:#ffffff}
 label = %gb_used%
 
 [module/wlan]
 type = internal/network
-interface = net1
-interval = 3.0
+interface = wlp1s0
+interval = 1.0
 
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+format-connected = <label-connected>
+format-connected-underline = ${xrdb:color11:#00ff00}
+label-connected = "⬇️ %downspeed% | ⬆️ %upspeed%"
 
 [module/eth]
 type = internal/network
@@ -187,24 +169,17 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = "⬇️ %downspeed% | ⬆️ %upspeed%"
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
 interval = 5
 
-date = "%a %d %b, "
-date-alt =
-
+date = %a %d %b,
 time = %H:%M
-time-alt = %H:%M:%S
 
 format-prefix = "⌚ "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color12:#0a6cf5}
+;format-underline = ${xrdb:color12:#0a6cf5}
 format-padding = 1
 
 label = %date% %time%
@@ -213,61 +188,48 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume = 🔉 %percentage%%
+label-volume-foreground = ${colors.foreground}
 
 label-muted = 🔇 muted
-label-muted-foreground = #666
+label-muted-foreground = ${colors.foreground-alt}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = ${xrdb:color2:#55aa55}
+bar-volume-foreground-1 = ${xrdb:color2:#55aa55}
+bar-volume-foreground-2 = ${xrdb:color2:#55aa55}
+bar-volume-foreground-3 = ${xrdb:color2:#55aa55}
+bar-volume-foreground-4 = ${xrdb:color2:#55aa55}
+bar-volume-foreground-5 = ${xrdb:color3:#f5a70a}
+bar-volume-foreground-6 = ${xrdb:color1:#ff5555}
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
 bar-volume-fill = ─
-bar-volume-fill-font = 2
 bar-volume-empty = ─
-bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
+adapter = ADP0
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging = <label-charging>
+format-charging-prefix = "🔌 "
+;format-charging-underline = ${xrdb:color14:#ffb52a}
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging = <label-discharging>
+;format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = "🔋 "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+;format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-foreground = ${xrdb:color2:#00ff00}
 
 [module/powermenu]
 type = custom/menu
@@ -307,7 +269,7 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini
