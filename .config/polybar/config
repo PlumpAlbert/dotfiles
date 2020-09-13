@@ -76,7 +76,7 @@ cursor-scroll = ns-resize
 [module/rescuetime]
 type = custom/script
 exec = "$HOME/.config/polybar/scripts/rt.sh"
-interval = 1800
+interval = 60
 click-left = "$HOME/.config/polybar/scripts/rt.sh"
 
 [module/xwindow]
@@ -144,7 +144,7 @@ card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
-interval = 3
+interval = 1
 format-prefix = "⚙️ "
 ;format-underline = ${xrdb:color9:#ffffff}
 label = %percentage:2%%

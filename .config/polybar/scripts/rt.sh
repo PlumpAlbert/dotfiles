@@ -1,8 +1,8 @@
 #!/bin/sh
 
-[ -f '/tmp/rt' ] || echo ""
-ICON=$(cat "/tmp/rt")
-[ -f "$HOME/.local/share/rescuetime.key" ] || echo $ICON
+ICON="👨💻"
+! [ "$(ps -o pid= -C rescuetime)" ] && echo ""
+! [ -f "$HOME/.local/share/rescuetime.key" ] && echo $ICON
 key="$(cat "$HOME/.local/share/rescuetime.key")"
 url="https://www.rescuetime.com/anapi/data\
 ?key=$key\
