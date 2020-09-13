@@ -20,3 +20,6 @@ eval "$HOME/.fehbg"
 #qwall 1m
 jack_init.sh
 echo "$HOME/.Xresources" | entr -p xresupdate
+
+sleep 3s
+"$HOME/.config/polybar/start.sh"
