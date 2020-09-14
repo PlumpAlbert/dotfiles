@@ -48,7 +48,8 @@ let g:coc_global_extensions = [
       \ 'coc-cmake',
       \ 'coc-highlight',
       \ 'coc-python',
-      \ 'coc-vimtex'
+      \ 'coc-vimtex',
+      \ 'coc-omnisharp'
       \]
 
 " Comments
