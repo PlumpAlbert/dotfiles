@@ -222,7 +222,8 @@ format-charging = <label-charging>
 format-charging-prefix = "🔌 "
 ;format-charging-underline = ${xrdb:color14:#ffb52a}
 
-format-discharging = <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = " %percentage%%"
 ;format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = "🔋 "
