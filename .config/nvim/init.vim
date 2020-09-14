@@ -4,8 +4,8 @@ source $HOME/.config/nvim/plugins.vim
 "set background=dark
 syntax on
 "colorscheme lena
-colorscheme gruvbox
-"colorscheme plastic
+"colorscheme gruvbox
+colorscheme plastic
 hi Normal guibg=NONE ctermbg=NONE
 
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
