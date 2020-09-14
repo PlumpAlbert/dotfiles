@@ -8,7 +8,7 @@
 !
 ! Black
 #define c0      #1d1a1e
-#define c8      #1d1a1e
+#define c8      #4f4752
 !
 ! Red
 #define c1      #ff5b82

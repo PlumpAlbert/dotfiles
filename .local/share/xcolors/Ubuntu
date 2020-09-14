@@ -16,20 +16,26 @@
 !
 ! Green
 #define c2      #4e9a06
+#define c10     #4e9a06
 !
 ! Yellow
 #define c3      #c4a000
+#define c11      #c4a000
 !
 ! Blue
 #define c4      #3465a4
+#define c12      #3465a4
 !
 ! Magenta
 #define c5      #75507b
+#define c13      #75507b
 !
 ! Cyan
 #define c6      #06989a
+#define c14      #06989a
 !
 ! White
 #define c7      #d3d7cf
+#define c15      #d3d7cf
 !
 ! Bold, Italic, Underline
