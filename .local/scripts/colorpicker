@@ -3,4 +3,4 @@
 ! [ $(which xcolor) ] && notify-send -a 'dwm' -u critical '`xcolor` is not installed!'
 ! [ $(which xclip) ] && notify-send -a 'dwm' -u critical '`xclip` is not installed!'
 
-xcolor | tr -d'\n' | xclip -sel clip
+xcolor | tr -d "\n" | xclip -sel clip
