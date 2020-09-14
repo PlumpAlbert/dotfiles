@@ -38,3 +38,7 @@ alias mt='sudo mount'
 alias ut='sudo umount'
 alias rt='python $HOME/projects/rescuetime/main.py -w 250 --multiplier 1.33'
 
+# Pacman aliases
+alias pi='sudo pacman -S'
+alias pis='yay -Ss'
+alias yi='yay -S'
