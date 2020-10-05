@@ -52,7 +52,7 @@ font-1 = Noto Color Emoji:scale=12:antialias=true;0
 font-2 = FontAwesome:pixelsize=8:antialias=false;0
 font-3 = monospace:pixelsize=8;1
 
-modules-left = dwm xwindow
+modules-left = bspwm dwm xwindow
 modules-center = cpu memory rescuetime
 modules-right = xbacklight pulseaudio battery download upload xkeyboard date powermenu
 
@@ -123,6 +123,29 @@ label-urgent-padding = 2
 
 label-empty = ""
 
+[module/bspwm]
+type = internal/bspwm
+format = <label-state> <label-mode>
+
+enable-tags-click = true
+enable-tags-scroll = true
+
+label-layout-padding = 2
+
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-underline = ${colors.alert}
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = ""
 [module/xbacklight]
 type = internal/xbacklight
 
