@@ -60,6 +60,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'chun-yang/auto-pairs'
 
 " Vim UI
+Plug 'ap/vim-css-color'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
