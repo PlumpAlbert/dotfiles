@@ -47,6 +47,7 @@ let g:coc_global_extensions = [
       \ 'coc-clangd',
       \ 'coc-cmake',
       \ 'coc-highlight',
+      \ 'coc-phpls',
       \ 'coc-python',
       \ 'coc-vimtex',
       \ 'coc-omnisharp'
