@@ -25,6 +25,7 @@ antigen apply
 
 function gi() { curl -sLw "\n" https://www.gitignore.io/api/$@ ;}
 function fm() { pcmanfm-qt $@ > /dev/null 2>&1 &; sleep 1; disown }
+function get_color() { xrdb -query | grep -iPo "\\*color$1:\\s*\\K\\#[[:alnum:]]*" }
 
 alias ls=lsd
 alias l='ls -lF'
