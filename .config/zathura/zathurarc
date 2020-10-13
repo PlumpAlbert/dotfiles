@@ -1,0 +1,8 @@
+set selection-clipboard 'clipboard'
+set recolor true
+set recolor-keephue true
+set recolor-darkcolor '#F7F7F7'
+set recolor-lightcolor '#1A1A1A'
+
+set render-loading-bg '#1A1A1A'
+set render-loading-fg '#FFFFFF'
