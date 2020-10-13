@@ -1,0 +1,3 @@
+#!/bin/sh
+
+python3 "$HOME/sources/wallhaven/source.py" -u PlumpAlbert
