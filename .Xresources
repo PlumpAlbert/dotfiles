@@ -3,7 +3,7 @@
 
 ! dwm
 dwm.selbgcolor: bg
-dwm.selbordercolor: bg
+dwm.selbordercolor: c14
 dwm.selfgcolor: c14
 
 dwm.normbgcolor: bg
