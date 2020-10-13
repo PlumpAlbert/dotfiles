@@ -1,6 +1,6 @@
 #!/bin/sh
 get_c() {
-  echo $(xrdb -query | awk "/^*$1:/ {print \$2}")
+  echo $(xrdb -query | awk "/^\*$1:/ {print \$2}")
 }
 
 DUNST_CONFIG="$HOME/.config/dunst"

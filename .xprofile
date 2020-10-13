@@ -1,5 +1,4 @@
 #!/bin/sh
-export BROWSER=google-chrome-stable
 export XDG_CONFIG_HOME="$HOME/.config"
 export SUDO_ASKPASS=/usr/bin/lxqt-openssh-askpass
 export SSH_ASKPASS=/usr/bin/lxqt-openssh-askpass

@@ -1,4 +1,4 @@
-#include "/home/plump/.local/share/xcolors/Nocturnal Winter"
+#include "/home/plump/.local/share/xcolors/BlulocoDark"
 !#include "/home/plump/.cache/wal/Xresources"
 
 ! dwm
@@ -79,3 +79,25 @@ XClock*hourColor:   rgba:c6/c5/c5/ff
 XClock*minuteColor: rgba:c6/c5/c5/ff
 XClock*secondColor: rgba:c6/c5/c5/ff
 
+
+! urxvt
+URxvt*buffered: true
+URxvt*cursorBlink: true
+URxvt*underlineColor: yellow
+URxvt*font:  xft:JetBrainsMono Nerd Font:pixelsize=14:antialias=true
+URxvt*depth: 32
+URxvt*borderless: 1
+URxvt*scrollBar: false
+URxvt*loginShell: true
+Urxvt*secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
+URxvt*saveLines: 5000
+URxvt*termName: rxvt-unicode
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: firefox
+URxvt.matcher.button: 1
+URxvt.background: [90]bg
+! Key bindings
+URxvt.keysym.Control-Up:     \033[1;5A
+URxvt.keysym.Control-Down:   \033[1;5B
+URxvt.keysym.Control-Left:   \033[1;5D
+URxvt.keysym.Control-Right:  \033[1;5C

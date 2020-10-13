@@ -3,9 +3,9 @@ source $HOME/.config/nvim/plugins.vim
 "set termguicolors
 "set background=dark
 syntax on
-"colorscheme lena
+colorscheme lena
 "colorscheme gruvbox
-colorscheme plastic
+"colorscheme plastic
 hi Normal guibg=NONE ctermbg=NONE
 
 au BufNewFile,BufRead *.ts setlocal filetype=typescript

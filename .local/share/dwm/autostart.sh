@@ -1,6 +1,11 @@
 #!/bin/sh
 #[ $(pidof dwmblocks) ] || dwmblocks &
-[ $(pidof picom) ] || picom &
+if [ "$(which picom)" ]; then
+  [ $(pidof picom) ] || picom &
+else
+  [ $(pidof compton) ] || compton &
+fi
+[ $(pidof lxqt-notificationd) ] || lxqt-notificationd &
 [ $(pidof nm-applet) ] || nm-applet &
 #[ $(pidof pasystray) ] || pasystray &
 [ $(pidof lxqt-policykit-agent) ] || lxqt-policykit-agent &
@@ -18,7 +23,7 @@ eval "$HOME/.fehbg"
 #wallpaper "$(pick -r "$HOME/Pictures")"
 
 #qwall 1m
-jack_init.sh
+"$HOME/.local/scripts/jack_init.sh"
 echo "$HOME/.Xresources" | entr -p xresupdate
 
 sleep 3s

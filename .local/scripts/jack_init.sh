@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # If JACK is not installed or running - exit
+killall jackd
 jack_control stop
 
 # Audio settings
