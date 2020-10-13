@@ -11,8 +11,8 @@ esac
 cmds="\
 🚪 leave dwm	killall -u $(whoami)
 ♻ renew dwm	kill -HUP $(pidof -s dwm)
-🔃 reboot	${reb:-sudo -A reboot}
-🖥 shutdown	${shut:-sudo -A poweroff}"
+🔃 reboot	${reb:-systemctl reboot}
+🖥 shutdown	${shut-systemctl poweroff}"
 
 choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu -i -p 'System' -lines 4)" || exit 1
 
