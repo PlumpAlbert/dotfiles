@@ -5,9 +5,11 @@ BAR="$1"
 [ -f "$PIDFILE" ] && kill "$(cat "$PIDFILE")"
 
 # Wait for dwm to start in order to socket work properly
-while ! [ -S /tmp/dwm.sock ]; do
-  sleep 1s
-done
+if [ $(pgrep -x dwm) ]; then
+  while ! [ -S /tmp/dwm.sock ]; do
+    sleep 1s
+  done
+fi
 
 [ -f "$BARFILE" -a -z "$BAR" ] && export BAR="$(cat $BARFILE)";
 

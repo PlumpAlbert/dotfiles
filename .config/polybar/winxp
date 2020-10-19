@@ -47,9 +47,9 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = JetBrainsMono Nerd Font:pixelsize=8;1
+font-0 = Cascadia Code PL:pixelsize=8;1
 font-1 = Noto Color Emoji:scale=12:antialias=true;0
-font-2 = FontAwesome:pixelsize=8:antialias=false;0
+font-2 = Symbols Nerd Font:pixelsize=8:antialias=false;0
 font-3 = monospace:pixelsize=8;1
 
 modules-left = bspwm dwm xwindow
@@ -114,7 +114,7 @@ label-empty =
 
 [module/xwindow]
 type = internal/xwindow
-label-foreground = ${colors.blue}
+label-foreground = ${colors.white}
 label = %title:0:27:...%
 
 [module/xkeyboard]
