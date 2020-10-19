@@ -9,6 +9,7 @@ let g:ale_fixers = {
       \ 'html': ['prettier'],
       \ 'json': ['prettier'],
       \ 'typescript': ['prettier'],
+      \ 'php': ['php_cs_fixer'],
       \ '*': ['trim_whitespace'],
       \}
 call plug#begin('~/.cache/vim-plug')
@@ -36,7 +37,6 @@ let g:ale_json_prettier_options = '--config ~/.prettierrc'
 let g:ale_typescript_prettier_options = '--config ~/.prettierrc'
 let g:ale_php_phpcs_executable='/home/plump/.config/composer/vendor/bin/phpcs'
 let g:ale_php_php_cs_fixer_executable='/home/plump/.config/composer/vendor/bin/php-cs-fixer'
-let g:ale_fixers = {'php': ['php_cs_fixer']}
 nmap <silent> <C-S-i> :ALEFix<CR>
 inoremap <silent> <C-S-i> :ALEFix<CR>
 
