@@ -18,7 +18,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 #THEME=denysdovhan/spaceship-prompt
-THEME=bira
+THEME=dst
 antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
 antigen apply
 
@@ -41,6 +41,10 @@ alias mt='sudo mount'
 alias ut='sudo umount'
 alias rt='python3 $HOME/source/rescuetime/main.py -w 250 --multiplier 1.33'
 [ "$(lsb_release -i 2 > /dev/null | grep -i 'debian')" ] && alias fd='fdfind'
+
+# BSPWM aliases
+alias bspcfg='nvim $HOME/.config/bspwm/bspwmrc'
+alias sxkcfg='nvim $HOME/.config/sxhkd/sxhkdrc'
 
 # Pacman aliases
 alias pi='sudo pacman -S'
