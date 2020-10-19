@@ -22,6 +22,7 @@ Plug 'lervag/vimtex'
 let g:tex_flavor = 'latex'
 Plug 'jansenm/vim-cmake'
 Plug 'tpope/vim-haml'
+Plug 'StanAngeloff/php.vim'
 
 " Linter
 Plug 'dense-analysis/ale'
@@ -33,6 +34,9 @@ let g:ale_css_prettier_options = '--config ~/.prettierrc'
 let g:ale_html_prettier_options = '--config ~/.prettierrc'
 let g:ale_json_prettier_options = '--config ~/.prettierrc'
 let g:ale_typescript_prettier_options = '--config ~/.prettierrc'
+let g:ale_php_phpcs_executable='/home/plump/.config/composer/vendor/bin/phpcs'
+let g:ale_php_php_cs_fixer_executable='/home/plump/.config/composer/vendor/bin/php-cs-fixer'
+let g:ale_fixers = {'php': ['php_cs_fixer']}
 nmap <silent> <C-S-i> :ALEFix<CR>
 inoremap <silent> <C-S-i> :ALEFix<CR>
 
