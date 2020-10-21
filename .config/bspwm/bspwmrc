@@ -18,13 +18,11 @@ bspc config gapless_monocle            true
 bspc config focus_follows_pointer      true
 bspc config focused_border_color       $(get_color 12)
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
+bspc rule -a RescueTime:RescueTime state=floating
 bspc rule -a Screenkey manage=off
 
 # Autostart
+progstart bspswallow
 progstart sxhkd
 progstart picom
 progstart nm-applet
@@ -32,11 +30,12 @@ progstart redshift-gtk
 progstart lxqt-policykit-agent
 progstart numlockx
 progstart clipit
-progstart $HOME/.config/polybar/start.sh
+
+"$HOME/.config/polybar/start.sh" example
 
 ## if jack is installed
 [ $(which jack_control) ] \
-  && progstart $HOME/.local/scripts/jack_init.sh
+  && $HOME/.local/scripts/jack_init.sh
 
 ## Wallpaper
 #wallpaper --blur "$(fd . $HOME/Pictures | shuf -n1)"
