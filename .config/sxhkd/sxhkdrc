@@ -35,7 +35,7 @@ alt + Print
 
 # quit/restart bspwm
 super + shift + {q,r}
-	bspc {quit,wm -r}
+	{rofi_run -l,bspc wm -r}
 
 # close and kill
 super + {_,alt + }q
