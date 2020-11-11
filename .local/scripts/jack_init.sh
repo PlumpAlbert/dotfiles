@@ -16,7 +16,10 @@ jack_control dps period 512
 pulseaudio -k
 sleep 1s
 # Start PulseAudio
-pulseaudio -D -F "$HOME/.config/pulse/config.pa"
+if ! $(pulseaudio -D -F "$HOME/.config/pulse/config.pa"); then
+  notify-send -a 'jack_init.sh' "Couldn't start pulseaudio"
+  exit
+fi
 # Unload pulseaudio `module-jackdbus-detect`
 pactl unload-module "$(pactl list short modules | grep -i 'module-jackdbus-detect' | cut -f1)"
 
