@@ -16,6 +16,9 @@ dmenu.foreground: fg
 dmenu.selbackground: bg
 dmenu.selforeground: c14
 
+! st
+st.font: JetBrainsMono Nerd Font:size=12
+
 ! rofi
 rofi.theme: /home/plump/.config/rofi/material.rasi
 rofi.background: bg
