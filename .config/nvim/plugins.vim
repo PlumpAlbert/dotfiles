@@ -24,7 +24,9 @@ let g:tex_flavor = 'latex'
 Plug 'jansenm/vim-cmake'
 Plug 'tpope/vim-haml'
 Plug 'StanAngeloff/php.vim'
-
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'aklt/plantuml-syntax'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Linter
 Plug 'dense-analysis/ale'
 let g:ale_fix_on_save = 1
@@ -79,6 +81,10 @@ Plug 'flrnprz/plastic.vim'
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-gitbranch'
+
+" PlantUML Live
+Plug 'tyru/open-browser.vim'
+Plug 'weirongxu/plantuml-previewer.vim'
 
 call plug#end()
 

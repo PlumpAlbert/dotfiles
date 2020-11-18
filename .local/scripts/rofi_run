@@ -34,7 +34,7 @@ EOF
 }
 
 if (( $# == 0 )); then
-	rofi -modi run,drun -show drun -line-padding 8 -padding 48 -hide-scrollbar -show-icons -lines 10
+	rofi -modi combi -combi-modi run,drun -show combi -line-padding 8 -padding 48 -hide-scrollbar -show-icons -lines 10
 else
 	for arg in "$@"; do
 		case $arg in

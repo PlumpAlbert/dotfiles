@@ -9,11 +9,14 @@ case "$(readlink -f /sbin/init)" in
 esac
 
 cmds="\
-🚪 leave dwm	killall -u $(whoami)
-♻ renew dwm	kill -HUP $(pidof -s dwm)
-🔃 reboot	${reb:-systemctl reboot}
-🖥 shutdown	${shut-systemctl poweroff}"
+🚪 logout	killall -u $(whoami)
+🔃 reboot	${reb:-sudo -A reboot}
+🖥 shutdown	${shut-sudo -A poweroff}"
 
-choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu -i -p 'System' -lines 4)" || exit 1
+[ $(pgrep -x dwm) ] && cmds="$cmds\n♻ renew dwm	kill -HUP $(pidof -s dwm)"
+
+lines=$(echo "$cmds" | wc -l)
+
+choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu -i -p 'System' -lines $lines)" || exit 1
 
 `echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-`
