@@ -25,7 +25,7 @@ antigen apply
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-function gi() { curl -sLw "\n" https://www.gitignore.io/api/$@ ;}
+function gi() { curl -sLw "\n" "https://www.gitignore.io/api/$@" > .gitignore ;}
 function fm() { pcmanfm-qt $@ > /dev/null 2>&1 &; sleep 1; disown }
 function get_color() {
   [[ "$1" =~ '^[0-9]+$' ]] \

@@ -2,7 +2,7 @@
 [global]
   geometry = "400x5-24-48"
   shrink = no
-  transparency = 5
+  transparency = 15
   separator_height = 4
   padding = 8
   horizontal_padding = 16
@@ -13,7 +13,7 @@
   line_height = 3
   allow_markup = yes
   markup = full
-  format = "%a\n%s\n%b\n%p"
+  format = "<b>%a</b>\n%s\n%b\n%p"
   plain_text = no
   alignment = left
   word_wrap = yes
@@ -22,7 +22,7 @@
   show_indicators = yes
   icon_position = left
   max_icon_size = 48
-  icon_path = "/usr/share/icons/Chicago95/actions/48/:/usr/share/icons/Chicago95/apps/48/:/usr/share/icons/Chicago95/devices/48/:/usr/share/icons/Chicago95/status/64/"
+  icon_path = "/usr/share/icons/elementary/actions/48/:/usr/share/icons/elementary/apps/48/:/usr/share/icons/elementary/devices/48/:/usr/share/icons/elementary/status/64/"
   dmenu = "/usr/local/bin/dmenu"
   browser = "/usr/bin/firefox"
   corner_radius = 4
@@ -38,7 +38,7 @@
 [urgency_normal]
   background = "{bg}"
   foreground = "{fg}"
-  timeout = 3
+  timeout = 5
 
 [urgency_critical]
   new_icon = "/usr/share/icons/Chicago95/status/48/dialog-error.png"
