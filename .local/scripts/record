@@ -19,7 +19,11 @@ connect_jack() {
   jack_connect 'Discord:front-right' ffmpeg:input_2
 }
 
-updateicon() { \
+generate_date() {
+  date '+%F_%T' | sed -e 's/:/-/g'
+}
+
+updateicon() {
 	echo "$1" > /tmp/recordingicon
   kill -43 $(pidof dwmblocks)
 }
@@ -37,81 +41,86 @@ killrecording() {
 	exit
 }
 
-screencast() { \
+screen() {
+  ! [ -d "$HOME/Videos" ] && mkdir "$HOME/Videos";
+  which jack_control > /dev/null
+  JACK=$?
 	ffmpeg -y \
 	-f x11grab \
-	-framerate 60 \
-	-s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" \
-	-i "$DISPLAY" \
-	-f jack -i ffmpeg \
 	-r 60 \
- 	-c:v h264 -crf 0 -preset ultrafast -c:a aac \
-	"$HOME/Videos/screencast-$(date '+%FT%T').mp4" &
-	echo $! > /tmp/recordingpid
-  connect_jack
-	updateicon "⏺️🎙️"
-}
-
-video() { ffmpeg \
-	-f x11grab \
 	-s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" \
 	-i "$DISPLAY" \
- 	-c:v h264 -crf 0 -preset ultrafast -c:a aac -r 60 \
-	"$HOME/Videos/video-$(date '+%FT%T').mkv" &
+  -f "$([ -z $JACK ] && echo jack || echo pulse)" \
+  -i "$([ -z $JACK ] && echo ffmpeg || echo default)" \
+ 	-c:v h264 -crf 0 -preset ultrafast -c:a aac \
+  "$HOME/Videos/screen-$(generate_date).mp4" > /dev/null &
 	echo $! > /tmp/recordingpid
-	updateicon "⏺️"
+  [ -z $JACK ] && connect_jack
+	updateicon "🖥️"
 }
 
-webcamhidef() { ffmpeg \
-	-f v4l2 \
-	-i /dev/video0 \
-	-video_size 1920x1080 \
-	"$HOME/Videos/webcam-$(date '+%FT%T').mkv" &
+window() {
+  ! [ -d "$HOME/Videos" ] && mkdir "$HOME/Videos";
+  if ! [ $(which xdotool 2> /dev/null) ]; then
+    echo "Please, install xdotool";
+    notify-send -a 'Recording' 'Please, install xdotool';
+    exit
+  fi
+  WINDOW="$(xdotool selectwindow)"
+  WINDOW_NAME="$(xdotool getwindowname $WINDOW)"
+  eval `xdotool getwindowgeometry --shell $WINDOW`
+  which jack_control > /dev/null
+  JACK=$?
+	ffmpeg -y \
+	-f x11grab \
+  -video_size "$WIDTH"x"$HEIGHT" \
+	-r 60 \
+	-i "$DISPLAY.$SCREEN+$X,$Y" \
+	-f "$([ -z $JACK ] && echo jack || echo pulse)" \
+  -i "$([ -z $JACK ] && echo ffmpeg || echo default)" \
+ 	-c:v h264 -crf 0 -preset ultrafast -c:a aac \
+  "$HOME/Videos/$WINDOW_NAME-$(generate_date).mp4" > /dev/null &
 	echo $! > /tmp/recordingpid
-	updateicon "🎥"
+  [ -z $JACK ] && connect_jack
+	updateicon "🪟"
 }
 
-webcam() { ffmpeg \
-	-f v4l2 \
-	-i /dev/video0 \
-	-video_size 640x480 \
-	"$HOME/Videos/webcam-$(date '+%FT%T').mkv" &
-	echo $! > /tmp/recordingpid
-	updateicon "🎥"
-}
-
-
-audio() { \
+audio() {
+  ! [ -d "$HOME/Videos" ] && mkdir "$HOME/Videos";
+  which jack_control > /dev/null
+  JACK=$?
 	ffmpeg \
-	-f jack -i ffmpeg \
+	-f "$([ -z $JACK ] && echo jack || echo pulse)" \
+  -i "$([ -z $JACK ] && echo ffmpeg || echo default)" \
 	-c:a flac \
 	"$HOME/Videos/audio-$(date '+%FT%T').flac" &
 	echo $! > /tmp/recordingpid
-  connect_jack
+  [ -z $JACK ] && connect_jack
 	updateicon "🎙️"
 }
 
-askrecording() { \
-	choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | rofi -dmenu -i -p "Select recording style:")
+askrecording() {
+  items="🖥️ screen~🪟  window~🎧 audio"
+	choice=$(printf "$items" \
+    | rofi -dmenu -sep '~' \
+    -i -p "Select recording style:")
 	case "$choice" in
-		screencast) screencast;;
-		audio) audio;;
-		video) video;;
-		webcam) webcam;;
-		"webcam (hi-def)") webcamhidef;;
+		"🖥️ screen") screen;;
+		"🪟  window") window;;
+		"🎧 audio") audio;;
 	esac
 }
 
-asktoend() { \
+asktoend() {
 	response=$(printf "No\\nYes" | rofi -dmenu -i -p "Recording still active. End recording?") &&
 	[ "$response" = "Yes" ] &&  killrecording
 }
 
 
 case "$1" in
-	screencast) screencast;;
-	audio) audio;;
-	video) video;;
-	kill) killrecording;;
+	"screen") screen;;
+	"audio") audio;;
+	"window") window;;
+	"kill") killrecording;;
 	*) ([ -f /tmp/recordingpid ] && asktoend && exit) || askrecording;;
 esac
